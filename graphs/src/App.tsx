@@ -1,12 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
-import Graph from './graph/Graph'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "./assets/vite.svg";
+import heroImg from "./assets/hero.png";
+import "./App.css";
+import Graph from "./graph/Graph";
 
 function App() {
   const graph = new Graph();
+  // graph.addVertex("v1");
+  // graph.addVertex("v2");
+  // graph.addVertex("v3");
+  // graph.addVertex("v4");
+  // graph.addVertex("v5");
+  // graph.addVertex("v6");
+  // graph.addVertex("v7");
+  // graph.addVertex("v8");
+  // graph.addVertex("v9");
+
+  // graph.addBidirectionalEdge("v1", "v2");
+  // graph.addBidirectionalEdge("v1", "v3");
+  // graph.addBidirectionalEdge("v2", "v4");
+  // graph.addBidirectionalEdge("v2", "v5");
+  // graph.addBidirectionalEdge("v4", "v6");
+  // graph.addBidirectionalEdge("v4", "v7");
+  // graph.addBidirectionalEdge("v5", "v8");
+  // graph.addBidirectionalEdge("v3", "v9");
+
+  // console.log('----------------')
+  // graph.DFS("v1");
+  console.log("----------------");
   graph.addVertex("v1");
   graph.addVertex("v2");
   graph.addVertex("v3");
@@ -14,21 +36,20 @@ function App() {
   graph.addVertex("v5");
   graph.addVertex("v6");
   graph.addVertex("v7");
-  graph.addVertex("v8");
-  graph.addVertex("v9");
+  graph.addBidirectionalEdge("v1", "v2", 5);
+  graph.addBidirectionalEdge("v1", "v6", 2);
 
-  graph.addBidirectionalEdge("v1", "v2");
-  graph.addBidirectionalEdge("v1", "v3");
-  graph.addBidirectionalEdge("v2", "v4");
-  graph.addBidirectionalEdge("v2", "v5");
-  graph.addBidirectionalEdge("v4", "v6");
-  graph.addBidirectionalEdge("v4", "v7");
-  graph.addBidirectionalEdge("v5", "v8");
-  graph.addBidirectionalEdge("v3", "v9");
+  graph.addBidirectionalEdge("v6", "v2", 1);
 
-  console.log('----------------')
-  graph.DFS("v1");
-  const [count, setCount] = useState(0)
+  graph.addBidirectionalEdge("v6", "v7", 5);
+
+  graph.addBidirectionalEdge("v7", "v4", 3);
+  graph.addBidirectionalEdge("v2", "v5", 7);
+  graph.addBidirectionalEdge("v5", "v3", 1);
+  graph.addBidirectionalEdge("v5", "v4", 2);
+
+  graph.PRIM("v1");
+  const [count, setCount] = useState(0);
 
   return (
     <>
@@ -139,7 +160,7 @@ function App() {
       <div className="ticks"></div>
       <section id="spacer"></section>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
